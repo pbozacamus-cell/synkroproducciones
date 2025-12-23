@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>SYNKRO producciones</title>
+	<link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@300;400;700;900&display=swap" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						primary: '#32517c'
+					}
+				}
+			}
+		}
+	</script>
+		</script>
+            <style>
+            :root { 
+            --bg: #000000; 
+            --accent: #32517c; 
+            }
+
+            /* ======================
+            GLOBAL BASE
+            ====================== */
+            html { scroll-behavior: smooth; }
+
+            body { 
+            background: var(--bg); 
+            color: #ffffff; 
+            font-family: 'Glacial Indifference', system-ui, -apple-system, sans-serif; 
+            padding-top: 84px; 
+            }
+
+            .glacial { font-family: 'Glacial Indifference', system-ui, -apple-system, sans-serif; }
+            .upper { text-transform: uppercase; letter-spacing: 0.12em; }
+
+            .accent-border { border: 2px solid var(--accent); }
+
+            /* Anchor offset for sticky header */
+            section[id], [id^="se"] { scroll-margin-top: 96px; }
+
+            /* ======================
+            HEADER / LOGO
+            ====================== */
+            .logo-wrap { 
+            flex: 0 0 160px; 
+            display: flex; 
+            align-items: center; 
+            }
+
+            .logo-lg { height: 64px; width: auto; }
+
+            @media (max-width: 640px) { 
+            .logo-wrap { flex: 0 0 140px; } 
+            .logo-lg { height: 56px; } 
+            }
+
+            /* ======================
+            HERO WRAPPER
+            ====================== */
+            section.hero-wrap { 
+            position: relative; 
+            overflow: hidden;
+            }
+
+            /* Center hero image */
+            .hero-center { 
+            background-repeat: no-repeat; 
+            background-position: center center; 
+            background-size: contain; 
+            width: 90%; 
+            max-width: 1400px; 
+            height: 54vh; 
+            margin: 0 auto;
+            }
+
+            @media (min-width: 768px) { 
+            .hero-center { width: 80%; height: 62vh; } 
+            }
+
+            @media (min-width: 1024px) { 
+            .hero-center { width: 72%; height: 70vh; } 
+            }
+
+            /* ======================
+            STAGE LIGHTS
+            ====================== */
+            .stage-light { 
+            position: absolute; 
+            top: 0.5vh; 
+            height: 82vh; 
+            pointer-events: none; 
+            opacity: 0.98; 
+            display: block; 
+            }
+
+            .stage-light.left { left: 0; }
+            .stage-light.right { right: 0; }
+
+            .stage-light img { 
+            height: 100%; 
+            width: auto; 
+            display: block; 
+            }
+
+            /* Hide stage lights EARLIER (before layout breaks) */
+            @media (max-width: 1280px) { 
+            .stage-light { display: none; } 
+            }
+
+            /* ======================
+            HERO LOGO
+            ====================== */
+            .hero-logo { 
+            width: 85%; 
+            max-width: 1000px; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto; 
+            }
+
+            @media (min-width: 1024px) { 
+            .hero-logo { width: 72%; } 
+            }
+
+            /* ======================
+            HERO INNER POSITIONING
+            ====================== */
+            .hero-inner { 
+            position: absolute; 
+            inset: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            pointer-events: none; 
+            }
+
+            /* Desktop: intentional upward offset */
+            @media (min-width: 1024px) {
+            .hero-inner {
+                align-items: flex-start;
+                padding-top: 12vh;
+            }
+            }
+
+            @media (max-width: 900px) {
+            .hero-inner {
+                align-items: center;
+                transform: translateY(-30vh);
+            }
+            }
+
+
+            /* ======================
+            HERO HEADLINE OFFSET
+            ====================== */
+            .hero-headline { margin-top: 0; }
+
+            @media (min-width: 1024px) { 
+            .hero-headline { margin-top: -24vh; } 
+            }
+
+            /* ======================
+            CONTACT BOX
+            ====================== */
+            .contact-box { 
+            background: transparent; 
+            color: #ffffff; 
+            border: 2px solid var(--accent); 
+            margin-top: 2rem; 
+            }
+
+		/* About photo: grayscale by default, color on hover/focus */
+		.about-photo { filter: grayscale(100%); transition: filter 320ms ease, transform 320ms ease; will-change: filter, transform; }
+		.about-photo:hover,
+		.about-photo:focus-visible { filter: none; transform: scale(1.02); }
+		@media (prefers-reduced-motion: reduce) { .about-photo { transition: none; transform: none; } }
+
+		/* Nav hover underline (accent bar) — animates from center to ends, slimmer */
+		nav a { position: relative; display: inline-block; }
+		nav a::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -6px;
+			height: 2px;
+			width: 100%;
+			background: var(--accent);
+			transform: scaleX(0);
+			transform-origin: center;
+			transition: transform 220ms ease;
+		}
+		nav a:hover::after,
+		nav a:focus-visible::after {
+			transform: scaleX(1);
+		}
+
+		/* Mobile menu links underline */
+		#mobile-menu a { position: relative; display: inline-block; }
+		#mobile-menu a::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -6px;
+			height: 2px;
+			width: 100%;
+			background: var(--accent);
+			transform: scaleX(0);
+			transform-origin: center;
+			transition: transform 220ms ease;
+		}
+		#mobile-menu a:hover::after,
+		#mobile-menu a:focus-visible::after { transform: scaleX(1); }
+
+		/* nav item sizing and spacing (slightly smaller) */
+		.nav-item { font-size: 0.9rem; padding: 0.125rem 0.25rem; }
+
+		/* mobile menu positioning when opened */
+		#mobile-menu { position: absolute; top: 72px; left: 0; right: 0; background: rgba(0,0,0,0.95); display: none; z-index:50; }
+		#mobile-menu.open { display: block; }
+		#mobile-menu .px-4 { padding-top: 12px; padding-bottom: 12px; }
+		/* mobile menu list styling: vertical, white text */
+		#mobile-menu .px-4 a { display: block; color: #fff; padding: 12px 16px; text-decoration: none; }
+		#mobile-menu .px-4 a:hover { background: rgba(255,255,255,0.03); }
+
+		/* Force collapse into hamburger under a breakpoint */
+		@media (max-width: 900px) {
+			#nav-items { display: none !important; }
+			#nav-toggle { display: block !important; }
+		}
+		@media (min-width: 901px) {
+			#nav-toggle { display: none !important; }
+		}
+		/* Sticky header bar */
+		header.sticky { position: fixed; top: 0; left: 0; width: 100%; z-index: 60; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); }
+		header.sticky .logo-lg { height: 64px; }
+
+        /* ======================
+        HERO FADE-IN ANIMATION
+        ====================== */
+        @keyframes heroFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Apply animation to hero stack */
+        .hero-stack {
+        animation: heroFadeUp 1200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+		</style>
+</head>
+	<body class="antialiased text-gray-800">
+	<header class="sticky">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6">
+			<div class="flex justify-between items-center py-4">
+					<div class="logo-wrap">
+						<a href="#inicio" class="inline-block">
+							<img src="assets/logos/logo.png" alt="Logo" class="logo-lg w-auto" />
+						</a>
+					</div>
+							<nav id="nav-items" class="flex space-x-4 glacial upper items-center">
+								<a class="nav-item text-white hover:text-primary" href="#inicio">INICIO</a>
+								<a class="nav-item text-white hover:text-primary" href="#quienes-somos">QUIENES SOMOS</a>
+								<a class="nav-item text-white hover:text-primary" href="#servicios">PACKS</a>
+                                <a class="nav-item text-white hover:text-primary" href="#portafolio">PORTAFOLIO</a>
+								<a class="nav-item text-white hover:text-primary" href="#catalogo">CATALOGO</a>
+								<a class="nav-item text-white hover:text-primary" href="#contact">CONTACTO</a>
+							</nav>
+								<div>
+									<button id="nav-toggle" aria-label="Open menu" aria-expanded="false" class="p-2 rounded-md focus:outline-none focus:ring hidden">
+										<!-- solid white hamburger (three lines) -->
+										<svg class="h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+											<rect x="3" y="5" width="18" height="2" fill="#FFFFFF" rx="1" />
+											<rect x="3" y="11" width="18" height="2" fill="#FFFFFF" rx="1" />
+											<rect x="3" y="17" width="18" height="2" fill="#FFFFFF" rx="1" />
+										</svg>
+									</button>
+								</div>
+			</div>
+		</div>
+		<div id="mobile-menu" class="md:hidden hidden glacial upper">
+			<div class="px-4 pb-4 space-y-2">
+				<a href="#inicio" class="block py-2">INICIO</a>
+				<a href="#quienes-somos" class="block py-2">QUIENES SOMOS</a>
+				<a href="#servicios" class="block py-2">PACKS ILUMINACION + AUDIO</a>
+				<a href="#portafolio" class="block py-2">PORTAFOLIO</a>
+                <a href="#catalogo" class="block py-2">CATALOGO EQUIPOS</a>
+				<a href="#contact" class="block py-2">CONTACTO</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Hero -->
+        <section id="inicio" class="relative min-h-screen overflow-hidden flex items-center justify-center">
+			<!-- stage lights (reduced height) -->
+			<div class="stage-light left"><img src="assets/stagelights/left-stagelight.png" alt="" /></div>
+			<div class="stage-light right"><img src="assets/stagelights/right-stagelight.png" alt="" /></div>
+
+			<!-- centered reduced hero image with logo overlay (moved upward) -->
+			<div class="hero-inner" style="padding-top:0;">
+				<div class="hero-center" style="background-image: url('assets/hero/hero(2).png'); filter: brightness(0.8);"></div>
+			</div>
+
+			<div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-8">
+				<div class="text-center text-white hero-headline">
+					<img src="assets/logos/logo.svg" alt="SYNKRO Producciones" class="hero-logo" />
+					<p class="glacial upper text-lg text-white/90 mb-4" style="margin-top:-3rem;">CREAMOS EXPERIENCIAS QUE MARCAN</p>
+					<a href="#contact" class="inline-block bg-white text-black px-6 py-3 rounded-full glacial upper" style="margin-top:-1.6rem;">COTIZA TU EVENTO</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Quienes Somos (About Us) - placed right after hero -->
+		<section class="py-16 bg-transparent" id="quienes-somos">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6">
+				<div class="flex flex-col lg:flex-row-reverse items-center gap-8">
+					<div class="w-full lg:w-5/12">
+						<img src="assets/about-us/about-us.jpg" alt="Sobre nosotros" class="w-full h-auto rounded-lg shadow-lg object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="w-full lg:w-7/12 text-white">
+						<h2 class="glacial upper text-3xl mb-6">QUIENES SOMOS</h2>
+						<p class="text-gray-300 mb-4">Somos SYNKRO Producciones, un equipo dedicado a crear experiencias inolvidables a través de la iluminación, el sonido y la producción integral de eventos. Nos especializamos en eventos corporativos, matrimonios y celebraciones privadas, entregando soluciones técnicas y creativas adaptadas a cada cliente.</p>
+						<p class="text-gray-300 mb-6">Contamos con profesionales experimentados, equipos de alta calidad y un enfoque en seguridad y detalle. Desde la conceptualización hasta la ejecución, trabajamos para que tu evento sea memorable.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Nuestros Servicios (hero-adjacent) -->
+		<section id="servicios" class="py-16">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+				<h2 class="glacial upper text-3xl text-white mb-10">NUESTROS SERVICIOS</h2>
+					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+					<div class="p-6 rounded-lg accent-border bg-transparent text-left">
+						<h3 class="font-semibold text-white mb-2">Eventos Corporativos</h3>
+						<p class="text-sm text-gray-300">Soluciones profesionales para conferencias, lanzamientos y convenciones.</p>
+                        <a href="Corporativos.html" class="mt-4 inline-block text-center bg-white text-black px-4 py-2 rounded-full glacial upper text-sm hover:bg-gray-300 transition">PACKS CORPORATIVOS </a>
+					</div>
+					<div class="p-6 rounded-lg accent-border bg-transparent text-left">
+						<h3 class="font-semibold text-white mb-2">Matrimonios</h3>
+						<p class="text-sm text-gray-300">El día más importante merece la mejor producción técnica y ambiental.</p>
+                        <a href="Matrimonios.html#matrimonios" class="mt-4 inline-block text-center bg-white text-black px-4 py-2 rounded-full glacial upper text-sm hover:bg-gray-300 transition">PACKS MATRIMONIOS </a>
+					</div>
+					<div class="p-6 rounded-lg accent-border bg-transparent text-left">
+						<h3 class="font-semibold text-white mb-2">Cumpleaños</h3>
+						<p class="text-sm text-gray-300">Celebraciones memorables con producción completa de sonido e iluminación.</p>
+                        <a href="packs.html#matrimonios" class="mt-4 inline-block text-center bg-white text-black px-4 py-2 rounded-full glacial upper text-sm hover:bg-gray-300 transition">PACKS Cumpleaños </a>
+					</div>
+					<div class="p-6 rounded-lg accent-border bg-transparent text-left">
+						<h3 class="font-semibold text-white mb-2">Otros</h3>
+						<p class="text-sm text-gray-300">Eventos especiales con atención al detalle y producción excepcional.</p>
+                        <a href="#contact" class="mt-4 inline-block text-center bg-white text-black px-4 py-2 rounded-full glacial upper text-sm hover:bg-gray-300 transition">Otros eventos </a>
+					</div>
+                </div>
+			</div>
+		</section>
+
+		<!-- Trabajos recientes -->
+		<section id="portafolio" class="py-16 bg-transparent">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+				<h2 class="glacial upper text-3xl text-white mb-8">TRABAJOS RECIENTES</h2>
+				<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T1.JPG" alt="Trabajo reciente 1" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T2.jpg" alt="Trabajo reciente 2" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T3.jpg" alt="Trabajo reciente 3" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T4.jpg" alt="Trabajo reciente 4" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T5.jpg" alt="Trabajo reciente 5" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T6.jpg" alt="Trabajo reciente 6" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T7.jpg" alt="Trabajo reciente 7" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T8.jpg" alt="Trabajo reciente 8" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T9.jpg" alt="Trabajo reciente 9" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T10.jpg" alt="Trabajo reciente 10" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T11.jpg" alt="Trabajo reciente 11" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+					<div class="overflow-hidden rounded-lg">
+						<img src="assets/trabajosrecientes/T12.jpg" alt="Trabajo reciente 12" class="w-full aspect-square object-cover about-photo" tabindex="0" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Nuestro Catálogo -->
+		<section id="catalogo" class="py-16">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+				<div>
+					<h2 class="glacial upper text-3xl text-white mb-4">NUESTRO CATALOGO</h2>
+					<p class="text-gray-300">En SYNKRO Producciones trabajamos con equipamiento profesional de audio e iluminación, cuidadosamente seleccionado para asegurar calidad, confiabilidad y un alto estándar técnico en cada evento.</p>
+					<p class="text-gray-300 mt-4">Nuestro catálogo de técnicas reúne todos nuestros equipos de iluminación, audio y montaje para eventos sociales y corporativos que requieren un nivel profesional.</p>
+				</div>
+				<div class="text-center">
+					<a href="assets/catalogo.pdf" download class="inline-block bg-white text-black px-8 py-4 rounded-full glacial upper">DESCARGAR CATALOGO</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contacto -->
+		<section id="contact" class="py-16">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start text-white">
+				<div>
+					<h2 class="glacial upper text-3xl mb-6">CONTACTO</h2>
+					<form 
+                        action=https://formspree.io/f/myzradrl
+                        method="POST" 
+                        class="space-y-4">
+						<div>
+							<label class="block text-sm mb-1">NOMBRE:</label>
+							  <input 
+                                name = "nombre"
+                                required
+                                class="w-full bg-transparent accent-border px-3 py-2 text-white" />
+						</div>
+						<div>
+							<label class="block text-sm mb-1">NUMERO:</label>
+							  <input 
+                                name="numero"
+                                required
+                                class="w-full bg-transparent accent-border px-3 py-2 text-white" />
+						</div>
+						<div>
+							<label class="block text-sm mb-1">EMAIL:</label>
+							  <input 
+                                type="email" 
+                                name="email"
+                                required
+                                class="w-full bg-transparent accent-border px-3 py-2 text-white" />
+						</div>
+						<div>
+							<label class="block text-sm mb-1">MENSAJE (FECHA, LUGAR, TIPO DE EVENTO):</label>
+							  <textarea 
+                                name="message"
+                                required
+                                class="w-full bg-transparent accent-border px-3 py-2 text-white h-32"></textarea>
+						</div>
+						<div>
+							<button type="submit" class="bg-white text-black px-4 py-2 rounded-full glacial">Enviar</button>
+						</div>
+					</form>
+				</div>
+				<div class="flex items-center justify-center">
+					<div class="w-full sm:w-10/12 lg:w-full" style="max-width:420px;">
+						<div class="contact-box rounded-lg p-8 text-center">
+							<h3 class="glacial upper text-sm mb-4 text-white">INFORMACION DE CONTACTO </h3>
+							<ul class="space-y-3 text-white text-lg font-medium">
+								<li>Instagram: @Synkroproducciones</li>
+								<li>WhatsApp: +56 9 5787 7779</li>
+								<li>Teléfono: +56 9 5787 7779</li>
+								<li>Email: <a href="mailto:igpbproducciones@gmail.com" class="underline">igpbproducciones@gmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="bg-white border-t">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 text-sm text-gray-600">
+			© <span id="year"></span> Synkro Producciones. All rights reserved.
+		</div>
+	</footer>
+
+	<script src="js/scripts.js"></script>
+</body>
+</html>

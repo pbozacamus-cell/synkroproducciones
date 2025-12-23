@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SYNKRO Producciones — Cumpleaños</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#32517c'
+          },
+          fontFamily: {
+            glacial: ['Glacial Indifference', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Glacial Indifference', sans-serif;
+    }
+    .accent-border {
+      border: 2px solid #32517c;
+    }
+                .logo-wrap { 
+            flex: 0 0 160px; 
+            display: flex; 
+            align-items: center; 
+            }
+
+            .logo-lg { height: 64px; width: auto; }
+
+            @media (max-width: 640px) { 
+            .logo-wrap { flex: 0 0 140px; } 
+            .logo-lg { height: 56px; } 
+            }
+
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Header -->
+  <header class="border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold tracking-widest">
+        <img src="assets/logos/logo.png" alt="Logo" class="logo-lg w-auto" />
+      </a>
+      <a href="index.html#contact" class="uppercase text-sm border border-white px-4 py-2 rounded-full">
+        Contacto
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-20 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-widest uppercase mb-4">
+      Packs de Cumpleaños
+    </h1>
+    <p class="text-gray-300 max-w-2xl mx-auto">
+      Soluciones profesionales de iluminación y audio, diseñadas para cumpleaños.
+    </p>
+  </section>
+
+  <!-- Packs -->
+  <section class="pb-24">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Pack 1 -->
+      <div class="accent-border rounded-xl p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 uppercase">
+          Pack Base
+        </h2>
+        <p class="text-gray-300 mb-6">
+          El punto de partida perfecto, contiene lo justo y necesario.
+        </p>
+        <ul class="text-sm text-gray-300 space-y-2 mb-8">
+Sonido potente e iluminación completa para ambientar con estilo y eficiencia todo tipo de celebraciones, especialmente cumpleaños y eventos privados.
+        </ul>
+        <a href="assets/pack cumpleaños 1.pdf" class="mt-auto text-center bg-white text-black py-3 rounded-full uppercase text-sm">
+          Foundation
+        </a>
+      </div>
+
+      <!-- Pack 2 -->
+      <div class="accent-border rounded-xl p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 uppercase">
+          Pack Intermedio
+        </h2>
+        <p class="text-gray-300 mb-6">
+          El siguiente nivel de potencia y ambientación.
+        </p>
+        <ul class="text-sm text-gray-300 space-y-2 mb-8">
+Sonido expandido e iluminación avanzada para elevar cualquier evento. Ideal para cumpleaños y celebraciones que buscan un impacto mayor.
+        </ul>
+        <a href="assets/pack cumpleaños 2.pdf" class="mt-auto text-center bg-white text-black py-3 rounded-full uppercase text-sm">
+          Evolution
+        </a>
+      </div>
+
+      <!-- Pack 3 -->
+      <div class="accent-border rounded-xl p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 uppercase">
+          Pack Premium
+        </h2>
+        <p class="text-gray-300 mb-6">
+          El pack definitivo de Synkro Producciones.
+        </p>
+        <ul class="text-sm text-gray-300 space-y-2 mb-8">
+Combina potencia sonora, iluminación profesional y producción integral para transformar cualquier espacio en una experiencia única. Diseñado para eventos grandes y de alta exigencia, ofrece una puesta en escena completa, elegante y llena de energía.
+        </ul>
+        <a href="assets/pack cumpleaños 3.pdf" class="mt-auto text-center bg-white text-black py-3 rounded-full uppercase text-sm">
+          Ascension
+        </a>
+      </div>
+    </div>
+<section class="pb-24">
+    <div class="block mx-auto bg-white text-black px-6 py-3 rounded-full w-fit mt-6">
+        <a href="index.html#contact" class="mt-auto text-center bg-white text-black py-3 rounded-full uppercase text-sm">
+          ¡Cotizar Ahora!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-8 text-center text-sm text-gray-400">
+    © 2025 SYNKRO Producciones
+  </footer>
+
+</body>
+</html>
